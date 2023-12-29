@@ -3,8 +3,10 @@ import Header from './Header';
 import { checkValidData } from '../utils/validate';
 import {createUserWithEmailAndPassword,signInWithEmailAndPassword} from "firebase/auth";
 import { auth } from '../utils/firebase';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const navigate = useNavigate();
   const [isSignInForm,setIsSignInForm]=useState(true);
   const [errorMessage, setErrorMessage]=useState(null);
   const email=useRef(null);
@@ -25,6 +27,7 @@ const Login = () => {
     // Signed up 
     const user = userCredential.user;
     console.log(user);
+    navigate("/browse");
     // ...
   })
   .catch((error) => {
@@ -41,6 +44,7 @@ const Login = () => {
     // Signed in 
     const user = userCredential.user;
     console.log(user);
+    navigate("/browse");
     // ...
   })
   .catch((error) => {
@@ -54,13 +58,14 @@ const Login = () => {
     // console.log(password.current.value);
   }
   return (
-    <div>
+    <div className='size-full h-screen'>
     <Header/>
-    <div className='absolute'>
-    <img src='https://assets.nflxext.com/ffe/siteui/vlv3/c31c3123-3df7-4359-8b8c-475bd2d9925d/15feb590-3d73-45e9-9e4a-2eb334c83921/IN-en-20231225-popsignuptwoweeks-perspective_alpha_website_medium.jpg' alt='login background'/>
+    <div className='flex-1' style={{ backgroundImage: 'url("https://assets.nflxext.com/ffe/siteui/vlv3/c31c3123-3df7-4359-8b8c-475bd2d9925d/15feb590-3d73-45e9-9e4a-2eb334c83921/IN-en-20231225-popsignuptwoweeks-perspective_alpha_website_medium.jpg")', backgroundSize: 'cover', backgroundAttachment: 'fixed' }}>
+    <div className='pt-36'>
+    {/* <img src='https://assets.nflxext.com/ffe/siteui/vlv3/c31c3123-3df7-4359-8b8c-475bd2d9925d/15feb590-3d73-45e9-9e4a-2eb334c83921/IN-en-20231225-popsignuptwoweeks-perspective_alpha_website_medium.jpg' alt='login background' className='object-cover size-full'/> */}
     </div>
     {/* login/signup form */}
-    <form onSubmit={(e)=>e.preventDefault()}className='absolute p-8 bg-black w-3/12 flex justify-center flex-col mx-auto right-0 left-0 my-36 text-white rounded-md bg-opacity-80'>
+    <form onSubmit={(e)=>e.preventDefault()}className='p-8 bg-black w-3/12 flex justify-center flex-col mx-auto right-0 left-0  text-white rounded-md bg-opacity-80 min-w-96'>
     <h1 className='font-bold text-3xl py-4 '>{isSignInForm ? 'Sign In' : "Sign Up"}</h1>
       {!isSignInForm && <input type='text' placeholder='Full Name' className='p-3 my-3 w-full bg-gray-700'/>}
       <input ref={email} type='text' placeholder='Email Address' className={`p-3 my-3 w-full bg-gray-700 ${errorMessage === 'Email Id is not valid' ? 'border-red-500 text-red-500 border-solid border-2' : ''}`}/>
@@ -73,6 +78,12 @@ const Login = () => {
       </div>
 
     </form>
+    <div className='w-full h-96 bg-slate-950 mt-20 opacity-60'>
+
+</div>
+    </div>
+    
+
     </div>
   )
 }
