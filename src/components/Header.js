@@ -64,8 +64,8 @@ signOut(auth).then(() => {
     //     <button onClick={handleSignOut} className='ml-3 font-bold text-white'>Sign Out</button>
     //     </div>)}
     // </div>
-    <header className={user ? `${isScrolled && 'bg-[#141414]'}` : "bg-gradient-to-b from-black"}>
-      <div className="flex items-center space-x-2 md:space-x-10">
+    <header className={user ? `${isScrolled && 'bg-[#141414] py-2'}` : "bg-gradient-to-b from-black"}>
+      <div className="flex items-center space-x-2 md:space-x-10 ">
         <img
           src= {LOGO}
           width={100}
@@ -95,6 +95,7 @@ signOut(auth).then(() => {
             src="https://rb.gy/g1pwyx"
             alt=""
             className="cursor-pointer rounded"
+            onClick={handleSignOut}
           />
         {/* </Link> */}
       </div>}

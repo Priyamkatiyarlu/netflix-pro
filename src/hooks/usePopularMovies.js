@@ -5,7 +5,7 @@ import { addPopularMovies } from '../utils/moviesSlice';
 const usePopularMovies =()=>{
     const dispatch = useDispatch();
   const getPopularMovies= async ()=>{
-    const data= await fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', API_OPTIONS);
+    const data= await fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=2', API_OPTIONS);
     const json=await data.json();
     console.log("Popular Movies",json.results);
     dispatch(addPopularMovies(json.results));
