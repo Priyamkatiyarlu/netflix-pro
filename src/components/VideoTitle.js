@@ -4,7 +4,7 @@ import { InformationCircleIcon } from '@heroicons/react/solid';
 
 const VideoTitle = ({title, overview}) => {
   return (
-    <div className='bg-gradient-to-r from-black w-screen aspect-video absolute'>
+    <div className='bg-gradient-to-r from-[#141414] bg-opacity-90 w-screen aspect-video absolute'>
     <div className='pt-24 md:pt-26 lg:pt-52 px-12 flex flex-col w-full absolute text-white ' >
         <h1 className='text-xl lg:text-5xl md:text-2xl font-bold w-full'>{title}</h1>
         <p className='py-6 max-w-xs text-xs md:max-w-lg md:text-md lg:max-w-xl lg:text-xl hidden md:block'>{overview}</p>

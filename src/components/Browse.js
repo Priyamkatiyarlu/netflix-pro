@@ -7,6 +7,7 @@ import usePopularMovies from '../hooks/usePopularMovies';
 import useNetflixOriginals from '../hooks/useNetflixOriginals';
 import useTopRated from '../hooks/useTopRated';
 import useUpcomingMovies from '../hooks/useUpcomingMovies';
+import Footer from './Footer';
 const Browse = () => {
   useNowPlayingMovies();
   usePopularMovies();
@@ -18,6 +19,7 @@ const Browse = () => {
     <Header/>
     <MainContainer/>
     <SecondaryContainer/>
+    <Footer/>
     </div>
     
   )
