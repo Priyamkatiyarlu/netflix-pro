@@ -1,6 +1,9 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { addModal, addModalData } from '../utils/modalSlice';
 
 const MovieCard = ({ movie }) => {
+  const dispatch = useDispatch();
   // Check if the movie object is defined
   if (!movie) {
     return (
@@ -21,6 +24,11 @@ const MovieCard = ({ movie }) => {
       //   setCurrentMovie(movie)
       //   setShowModal(true)
       // }}
+      onClick={() => {
+        console.log(movie);
+        dispatch(addModal());
+        dispatch(addModalData(movie));
+      }}
     >
       <img
         src={`https://image.tmdb.org/t/p/w500${imagePath}`}
