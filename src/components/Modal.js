@@ -80,15 +80,13 @@ const Modal = () => {
         >
           <XIcon className="h-6 w-6" />
         </button>
-
-        <div className="relative pt-[56.25%]">
-          {/* Video player with shimmer effect while loading there is some problem with shimmer loading to be fixed */}
           {loadingTrailer ? (
-            <div className="shimmer-container bg-[#181818] ">
+            <div className="absolute w-full h-full shimmer-container bg-[#181818] ">
               <div className="shimmer"></div>
               <div className="loading-text animate__animated animate__fadeIn animate__delay-1s">Loading Trailer</div>
             </div>
           ) : (
+            <div className="relative pt-[56.25%]">
             <ReactPlayer
               url={trailer ? `https://www.youtube.com/watch?v=${trailer.key}` : ''}
               width="100%"
@@ -97,8 +95,7 @@ const Modal = () => {
               playing
               muted={muted}
             />
-          )}
-          {/* Controls for the video player */}
+              {/* Controls for the video player */}
           <div className="absolute bottom-10 flex w-full items-center justify-between px-10">
             <div className="flex space-x-2">
               {/* Play button */}
@@ -123,6 +120,7 @@ const Modal = () => {
           </div>
         </div>
 
+          )}
         {/* Additional information section */}
         <div className="flex space-x-16 rounded-b-md bg-[#181818] px-10 py-8">
           <div className="space-y-6 text-lg">
